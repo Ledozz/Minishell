@@ -6,7 +6,7 @@
 #    By: tfauve-p <tfauve-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:38:38 by tfauve-p          #+#    #+#              #
-#    Updated: 2024/08/06 11:53:29 by tfauve-p         ###   ########.fr        #
+#    Updated: 2024/08/06 17:17:00 by tfauve-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,11 @@ INCLUDES_DIR = INCLUDES/
 OBJECTS_DIR = OBJECTS/
 
 SOURCES = \
-	$(SOURCES_DIR)main.c
+	$(SOURCES_DIR)main.c \
+	$(SOURCES_DIR)parser_checker.c \
+	$(SOURCES_DIR)parser_utilis.c \
+	$(SOURCES_DIR)signals.c
+
 
 OBJECTS = $(SOURCES:$(SOURCES_DIR)%.c=$(OBJECTS_DIR)%.o)
 CC = cc

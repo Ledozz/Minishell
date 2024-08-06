@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfauve-p <tfauve-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 11:52:11 by tfauve-p          #+#    #+#             */
-/*   Updated: 2024/08/06 17:32:45 by tfauve-p         ###   ########.fr       */
+/*   Created: 2024/08/06 17:15:55 by tfauve-p          #+#    #+#             */
+/*   Updated: 2024/08/06 17:48:53 by tfauve-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	g_sig_receiver = 0;
-
-int	main(void)
+void ft_get_signal(int sig)
 {
-	char	*a;
-	
-	a = NULL;
-	
-	signal(SIGINT, ft_get_signal);
-	while(1)
-	{
-		a = readline("MiniHell->");
-		if (a)
-		{
-			add_history(a);
-			if (ft_parser_check(a) == -1)
-				ft_error_parsing();
-			continue;
-		}
-		break;
-	}
-	return (0);
+	(void)sig;
+	printf("SALAM LES ROYA\n");
+	rl_redisplay();
 }
