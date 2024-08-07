@@ -6,7 +6,7 @@
 #    By: tfauve-p <tfauve-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/24 14:38:38 by tfauve-p          #+#    #+#              #
-#    Updated: 2024/08/06 17:17:00 by tfauve-p         ###   ########.fr        #
+#    Updated: 2024/08/07 15:09:47 by tfauve-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ SOURCES = \
 	$(SOURCES_DIR)main.c \
 	$(SOURCES_DIR)parser_checker.c \
 	$(SOURCES_DIR)parser_utilis.c \
-	$(SOURCES_DIR)signals.c
+	$(SOURCES_DIR)parser.c \
+	$(SOURCES_DIR)signals.c \
+	$(SOURCES_DIR)exec.c \
+	$(SOURCES_DIR)free.c
 
 
 OBJECTS = $(SOURCES:$(SOURCES_DIR)%.c=$(OBJECTS_DIR)%.o)

@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   exec.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tfauve-p <tfauve-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 11:52:11 by tfauve-p          #+#    #+#             */
-/*   Updated: 2024/08/07 16:52:34 by tfauve-p         ###   ########.fr       */
+/*   Created: 2024/08/07 15:01:37 by tfauve-p          #+#    #+#             */
+/*   Updated: 2024/08/07 16:49:04 by tfauve-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-volatile int	g_sig_receiver = 0;
-
-int	main(void)
+void	ft_exec(t_struct *data)
 {
-	t_struct	data;
+	int	i;
+	int	j;
 
-	ft_init_signals();
-	while (1)
+	i = 0;
+	while (data->arg[i])
 	{
-		g_sig_receiver = 0;
-		data.line = readline("MiniHell->");
-		if (g_sig_receiver == 1)
-			continue ;
-		if (data.line)
+		j = 0;
+		while (data->arg[i][j])
 		{
-			add_history(data.line);
-			ft_parser(&data);
-			ft_exec(&data);
-			ft_free(&data);
-			continue ;
+			printf("[%c] ", data->arg[i][j]);
+			j++;
 		}
-		if (g_sig_receiver == 0)
-			break ;
+		printf("\n");
+		i++;
 	}
-	return (0);
 }
